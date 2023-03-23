@@ -1,0 +1,8 @@
+{
+  "short_name": "Scribble",
+  "name": "Scribble: Word List & Dictionary",
+  "start_url": "/",
+  "background_color": "#ffffff",
+  "display": "minimal-ui",
+  "description": "Word list & dictionary for various word games"
+}
