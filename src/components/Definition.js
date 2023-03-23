@@ -3,19 +3,18 @@ import { getDefinition } from '../utils/api';
 import App from '../contexts/App';
 
 const Definition = () => {
-  const { selected } = useContext(App);
-  const [definition, setDefinition] = useState(null);
+  const { selected, definition, setDefinition } = useContext(App);
   const [defNum, ] = useState(0);
   useEffect(() => {
     if (!selected) return;
     getDefinition(selected)
       .then(res => setDefinition(res));
-  }, [selected]);
+  }, [selected, setDefinition]);
   if (!selected || !definition) return null;
   if (definition.title) return (
     <fieldset id="definition">
-      <legend>{selected} <small><a target="_blank" href="https://dictionaryapi.dev/" rel="noreferrer">source</a></small></legend>
-      <p>No definition found</p>
+      <legend>{selected} <small><a target="_blank" href="https://dictionaryapi.dev/" rel="noreferrer">Free Dictionary API</a></small></legend>
+      <p>No definition found.</p>
     </fieldset>
   );
   const {
@@ -23,7 +22,7 @@ const Definition = () => {
   } = definition[defNum];
   return (
     <fieldset id="definition">
-      <legend>{word}{phonetic && ` (${phonetic})`} <small><a target="_blank" href="https://dictionaryapi.dev/" rel="noreferrer">source</a></small></legend>
+      <legend>{word}  <small>{phonetic && `(${phonetic}) `}<a target="_blank" href="https://dictionaryapi.dev/" rel="noreferrer">Free Dictionary API</a></small></legend>
       {meanings.map(({ partOfSpeech, definitions }, i) => (
         <p key={i}>
           <strong>{partOfSpeech}</strong>: {definitions[0].definition}<br />

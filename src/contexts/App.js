@@ -6,6 +6,7 @@ import constants from '../constants';
 const App = createContext();
 
 const Provider = ({ worker, children }) => {
+  const [definition, setDefinition] = useState(null);
   const [selected, setSelected] = useState(null);
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState([]);
@@ -31,6 +32,8 @@ const Provider = ({ worker, children }) => {
     <App.Provider value={{
       selected,
       setSelected,
+      definition,
+      setDefinition,
       search,
       results,
       message,

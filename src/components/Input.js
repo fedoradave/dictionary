@@ -3,7 +3,7 @@ import constants from '../constants';
 const Input = () => {
   return (
     <fieldset id="input">
-      <legend>input</legend>
+      <legend>input <small>(?=blank)</small></legend>
       <input
         id={constants.query.name}
         className="fluid"

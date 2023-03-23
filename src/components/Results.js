@@ -2,17 +2,31 @@ import { useContext } from 'react';
 import App from '../contexts/App';
 import Loader from './Loader'
 
-const Results = () => {
-  const { results, message, loading, setSelected } = useContext(App);
+const Legend = () => {
+  const { results, loading } = useContext(App);
   const title = `${results.length}  word${results.length === 1 ? '': 's'}`
   return (
+    <legend>results <small>{!loading && `(${title})`}</small></legend>
+  );
+}
+
+const Results = () => {
+  const { results, message, loading, setSelected, selected } = useContext(App);
+  return (
     <fieldset id="result">
-      <legend>results: {loading ? <Loader /> : title}</legend>
+      <Legend />
       <ul>
-        {results.length
-          ? results.map(result => <li onClick={() => setSelected(result)}key={result}>{result}</li>)
-          : <li>{message}</li>
-        }
+        {loading && <Loader />}
+        {!loading && !!results.length && results.map(result => (
+            <li
+              className={result === selected ? 'selected' : undefined}
+              onClick={() => setSelected(result)}key={result}>
+              {result}
+            </li>
+        ))}
+        {!loading && !results.length && (
+          <p>{message}</p>
+        )}
       </ul>
     </fieldset>
   );
