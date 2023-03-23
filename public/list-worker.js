@@ -2,7 +2,7 @@
 const constants = {
   dictionary: '/twl06.txt',
   message: {
-    default: 'you\'re very pretty'
+    default: 'search a word'
   },
   query: {
     name: 'query',
