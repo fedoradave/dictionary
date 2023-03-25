@@ -1,23 +1,5 @@
-// constants
-const constants = {
-  dictionary: '/twl06.txt',
-  message: {
-    default: 'Search a word.'
-  },
-  query: {
-    name: 'query',
-  },
-  options: {
-    name: 'options',
-    values: {
-      exact: 'exact',
-      starts: 'starts',
-      ends: 'ends',
-      contains: 'contains',
-      scramble: 'scramble',
-    }
-  }
-};
+import constants from '../constants';
+
 // api
 function loadFile(filePath) {
   var result = null;
@@ -95,22 +77,25 @@ function contains(query, table) {
     []
   );
 }
-function scramble(query, table) {
+function scramble() {
+  asScrambleRegex();
   return [];
+}
+// regex
+function asScrambleRegex(word, options) {
+  return { word, options };
+}
+function asRegex(word) {
+  return word.replaceAll('?', '.');
 }
 // validator
 function hasBlank(word) {
   return !!word.includes('?');
 }
-function asRegex(word) {
-  return word.replaceAll('?', '.');
-}
 function validate(request) {
-  // missing word or option
   if (!request.word) return false;
   if (!request.option) return false;
-  // wrong word format
-  if (!request.word.match(/^[A-Za-z\?]+$/)) return false;
+  if (!request.word.match(/^[A-Za-z?]+$/)) return false;
   return true;
 }
 // app

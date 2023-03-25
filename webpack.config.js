@@ -4,13 +4,18 @@ const ESLintPlugin = require("eslint-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
+  entry: {
+    app: path.join(__dirname, "/src/index.js"),
+    listWorker: path.join(__dirname, "/src/workers/listWorker.js"),
+  },
   output: {
     path: path.join(__dirname, "/dist"), // the bundle output path
-    filename: "bundle.js", // the name of the bundle
+    filename: "[name].js", // the name of the bundle
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: "src/index.html", // to import index.html file inside index.js
+      chunks: ['app']
     }),
     new ESLintPlugin({
       extensions: [`js`, `jsx`],

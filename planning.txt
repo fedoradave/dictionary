@@ -1,0 +1,15 @@
+SQUABBLE.Band© Crossword Dictionary todo:
+- webpack web-worker
+- squamble option
+- custom radio & checkboxes
+- group by lengths
+- panel layout
+- about panel
+- settings panel
+  - theme
+- clear -> reset... does a full app reset
+- new search removes definition
+- definition loading state
+- api improvements:
+  - catch 404s
+  - fallback to other dictionaries
