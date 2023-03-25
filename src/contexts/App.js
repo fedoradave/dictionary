@@ -1,11 +1,12 @@
 import {
-  createContext, useState, useEffect
+  createContext, useState, useEffect, useCallback
 } from 'react';
 import constants from '../constants';
 
 const App = createContext();
 
 const Provider = ({ worker, children }) => {
+  const [showSettings, setShowSettings] = useState(false);
   const [definition, setDefinition] = useState(null);
   const [selected, setSelected] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -24,8 +25,11 @@ const Provider = ({ worker, children }) => {
     setMessage(message);
     setLoading(false);
   }
+  const toggleSettings = useCallback(() =>
+    setShowSettings(!showSettings),
+    [setShowSettings, showSettings]
+  );
   useEffect(() => {
-    console.log(worker.onmessage);
     worker.onmessage = handleResult;
   }, [worker]);
   return (
@@ -34,6 +38,8 @@ const Provider = ({ worker, children }) => {
       setSelected,
       definition,
       setDefinition,
+      toggleSettings,
+      showSettings,
       search,
       results,
       message,

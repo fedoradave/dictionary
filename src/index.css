@@ -1,12 +1,12 @@
 :root {
-  --foreground-color: #C1FFF2;
+  --color: #C1FFF2;
   --background-color: #231C2A;
   --border-color: #B2EDC5;
   font-size: 18px;
   font-family: verdana;
 }
 html, body {
-  color: var(--foreground-color);
+  color: var(--color);
   background: var(--background-color);
   border-color: var(--border-color);
   box-sizing: border-box;
@@ -30,6 +30,9 @@ body {
   margin: 0;
   padding: 0;
 }
+.justify-right {
+  margin-left: auto;
+}
 #app {
   height: 100%;
   margin: 0 0.5rem;
@@ -39,7 +42,8 @@ body {
 }
 #options {
   display: flex;
-  grid-gap: 0.5rem;
+  grid-gap: 0 0.5rem;
+  flex-wrap: wrap;
 }
 #result {
   flex: 1;
@@ -54,6 +58,13 @@ body {
   grid-gap: 0.25rem;
   padding-bottom: 0.75rem;
 }
+button, label {
+  cursor: pointer;
+  white-space: nowrap;
+}
+input[type=checkbox], input[type=radio] {
+  margin-right: 0.5rem;
+}
 input[type=text], button {
   background: none;
   border: none;
@@ -67,7 +78,7 @@ fieldset {
   border-radius: 0.625rem;
   border-style: solid;
   border-width: 2px;
-  padding-block-start: 0.25rem;
+  padding-block-start: 0.125rem;
   padding-inline-start: 0.75rem;
   padding-inline-end: 0.75rem;
   padding-block-end: 0.625em;
@@ -84,8 +95,12 @@ ul {
 li {
   cursor: pointer;
 }
+li:active {
+  color: var(--background-color);
+  background: var(--border-color);
+}
 li.selected {
-  background: var(--foreground-color);
+  background: var(--color);
   color: var(--background-color);
 }
 p {

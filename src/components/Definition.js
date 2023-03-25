@@ -1,5 +1,5 @@
 import { useContext, useState, useEffect } from 'react';
-import { getDefinition } from '../utils/api';
+import { getDefinition } from '../api';
 import App from '../contexts/App';
 
 const Definition = () => {

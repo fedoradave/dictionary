@@ -2,7 +2,7 @@
 const constants = {
   dictionary: '/twl06.txt',
   message: {
-    default: 'search a word'
+    default: 'Search a word.'
   },
   query: {
     name: 'query',
@@ -14,10 +14,11 @@ const constants = {
       starts: 'starts',
       ends: 'ends',
       contains: 'contains',
+      scramble: 'scramble',
     }
   }
 };
-// api call
+// api
 function loadFile(filePath) {
   var result = null;
   var xmlhttp = new XMLHttpRequest();
@@ -30,12 +31,29 @@ function loadFile(filePath) {
 }
 // queries
 function exact(query, table) {
-  if (!query.length) return [];
-  if (table[query]) return [query];
+  if (hasBlank(query)) {
+    const regex = new RegExp(`^${asRegex(query)}$`)
+    return Object.keys(table).reduce((hits, entry) =>
+      entry.match(regex)
+        ? [...hits, entry]
+        : hits,
+      []
+    );
+  } else {
+    if (table[query]) return [query];
+  }
   return [];
 }
 function startsWith(query, table) {
-  if (!query.length) return [];
+  if (hasBlank(query)) {
+    const regex = new RegExp(`^${asRegex(query)}`)
+    return Object.keys(table).reduce((hits, entry) =>
+      entry.match(regex)
+        ? [...hits, entry]
+        : hits,
+      []
+    );
+  }
   return Object.keys(table).reduce((hits, entry) =>
     entry.substring(0, query.length) === query
       ? [...hits, entry]
@@ -44,7 +62,15 @@ function startsWith(query, table) {
   );
 }
 function endsWith(query, table) {
-  if (!query.length) return [];
+  if (hasBlank(query)) {
+    const regex = new RegExp(`${asRegex(query)}$`)
+    return Object.keys(table).reduce((hits, entry) =>
+      entry.match(regex)
+        ? [...hits, entry]
+        : hits,
+      []
+    );
+  }
   return Object.keys(table).reduce((hits, entry) =>
     entry.substring(entry.length - query.length) === query
       ? [...hits, entry]
@@ -53,13 +79,39 @@ function endsWith(query, table) {
   );
 }
 function contains(query, table) {
-  if (!query.length) return [];
+  if (hasBlank(query)) {
+    const regex = new RegExp(asRegex(query))
+    return Object.keys(table).reduce((hits, entry) =>
+      entry.match(regex)
+        ? [...hits, entry]
+        : hits,
+      []
+    );
+  }
   return Object.keys(table).reduce((hits, entry) =>
     entry.includes(query)
       ? [...hits, entry]
       : hits,
     []
   );
+}
+function scramble(query, table) {
+  return [];
+}
+// validator
+function hasBlank(word) {
+  return !!word.includes('?');
+}
+function asRegex(word) {
+  return word.replaceAll('?', '.');
+}
+function validate(request) {
+  // missing word or option
+  if (!request.word) return false;
+  if (!request.option) return false;
+  // wrong word format
+  if (!request.word.match(/^[A-Za-z\?]+$/)) return false;
+  return true;
 }
 // app
 const fileText = loadFile('/twl06.txt');
@@ -69,12 +121,11 @@ const table = fileText && fileText.length
       entry => [entry, true]
     )
   ) : {};
-
 onmessage = e => {
   const { option, word } = e.data;
   let message = constants.message.default;
   let results = [];
-  if (!word.length) return postMessage({ message, results });
+  if (!validate(e.data)) return postMessage({ message, results });
   switch(option) {
     case constants.options.values.exact:
       results = exact(word, table);
@@ -99,6 +150,12 @@ onmessage = e => {
       message = results.length
         ? ''
         : `no valid words contain "${word}"`;
+      break;
+    case constants.options.values.scramble:
+      results = scramble(word, table);
+      message = results.length
+        ? ''
+        : `no valid words contain the letters "${word}"`;
       break;
     default:
       message = `error: missing or invalid options`;

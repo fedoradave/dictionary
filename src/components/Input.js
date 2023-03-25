@@ -11,7 +11,8 @@ const Input = () => {
         autoComplete="off"
         autoFocus
       />
-      <button action="submit">&gt;</button>
+      <button type="reset">clear</button>
+      <button type="submit">search</button>
     </fieldset>
   );
 }

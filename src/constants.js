@@ -1,7 +1,7 @@
 const constants = {
   dictionary: '/twl06.txt',
   message: {
-    default: 'search a word'
+    default: 'Search a word.'
   },
   query: {
     name: 'query',
@@ -13,6 +13,7 @@ const constants = {
       starts: 'starts',
       ends: 'ends',
       contains: 'contains',
+      scramble: 'scramble',
     }
   }
 };
