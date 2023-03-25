@@ -113,9 +113,14 @@ header {
 header small {
   font-size: 0.375em;
 }
+header strong {
+  font-family: serif;
+  font-weight: bold;
+}
 h1 {
-  font-size: 2rem;
+  font-size: 1.75rem;
   margin: 0.75rem auto 0.5rem 0;
+  font-weight: normal;
 }
 header button {
   font-size: 1.5rem;
