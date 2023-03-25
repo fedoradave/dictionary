@@ -17,6 +17,9 @@ const Provider = ({ worker, children }) => {
     const word = event.target.elements[constants.query.name].value.toLowerCase().trim();
     const option = event.target.elements[constants.options.name].value;
     setLoading(true);
+    setResults([]);
+    setDefinition(null);
+    setSelected(null);
     worker.postMessage({ word, option });
   }
   const handleResult = e => {
@@ -29,6 +32,14 @@ const Provider = ({ worker, children }) => {
     setShowSettings(!showSettings),
     [setShowSettings, showSettings]
   );
+  const reset = useCallback(() => {
+    setShowSettings(false);
+    setSelected(null);
+    setDefinition(null);
+    setLoading(false);
+    setResults([]);
+    setMessage(constants.message.default);
+  }, [])
   useEffect(() => {
     worker.onmessage = handleResult;
   }, [worker]);
@@ -42,6 +53,7 @@ const Provider = ({ worker, children }) => {
       showSettings,
       search,
       results,
+      reset,
       message,
       loading,
     }}>

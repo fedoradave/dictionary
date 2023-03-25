@@ -1,6 +1,9 @@
+import { useContext } from 'react';
 import constants from '../constants';
+import App from '../contexts/App';
 
 const Input = () => {
+  const { reset } = useContext(App);
   return (
     <fieldset id="input">
       <legend>input <small>(?=blank)</small></legend>
@@ -11,7 +14,7 @@ const Input = () => {
         autoComplete="off"
         autoFocus
       />
-      <button type="reset">clear</button>
+      <button type="reset" onClick={reset}>reset</button>
       <button type="submit">search</button>
     </fieldset>
   );

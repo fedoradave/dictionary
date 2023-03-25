@@ -37,7 +37,7 @@ const Options = () => {
           name={constants.options.name}
           value={constants.options.values.contains}
         />
-        has
+        contains
       </label>
       <label>
         <input
@@ -45,7 +45,7 @@ const Options = () => {
           name={constants.options.name}
           value={constants.options.values.scramble}
         />
-        scramble
+        squamble
       </label>
       <button className="justify-right" type="button" onClick={toggleSettings}>
         {showSettings
