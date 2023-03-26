@@ -27,6 +27,7 @@ const Provider = ({ worker, children }) => {
     setResults(results);
     setMessage(message);
     setLoading(false);
+    if (results.length === 1) setSelected(results[0]);
   }
   const toggleSettings = useCallback(() =>
     setShowSettings(!showSettings),
@@ -64,5 +65,5 @@ const Provider = ({ worker, children }) => {
 
 export {
   App as default,
-  Provider as Provider
+  Provider
 }

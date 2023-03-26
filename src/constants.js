@@ -15,6 +15,10 @@ const constants = {
       contains: 'contains',
       scramble: 'scramble',
     }
+  },
+  group: {
+    name: 'group',
+    default: true,
   }
 };
 Object.freeze(constants);

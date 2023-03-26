@@ -6,7 +6,7 @@ const CopyPlugin = require("copy-webpack-plugin");
 module.exports = {
   entry: {
     app: path.join(__dirname, "/src/index.js"),
-    listWorker: path.join(__dirname, "/src/workers/listWorker.js"),
+    worker: path.join(__dirname, "/src/workers/index.js"),
   },
   output: {
     path: path.join(__dirname, "/dist"), // the bundle output path

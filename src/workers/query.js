@@ -1,4 +1,27 @@
 import { hasBlank, asRegex, asScrambleRegex } from './regex'
+export function sortByLength(list) {
+  const groups = groupByLength(list);
+  console.log(groups);
+  return Object.keys(groups).reduce((sortedList, length) => [
+    ...sortedList,
+    ...groups[length]
+  ], []);
+}
+export function groupByLength(list) {
+  if (!list) return {};
+  return list.reduce((groups, entry) => {
+    const newList = [
+      ...(groups[entry.length] ? groups[entry.length] : []),
+      entry,
+    ];
+    if (!groups[entry.length]) groups[entry.length] = [entry];
+    else groups[entry.length].push(entry);
+    return {
+      ...groups,
+      [entry.length]: newList
+    }
+  }, {})
+}
 export function exact(query, table) {
   if (hasBlank(query)) {
     const regex = new RegExp(`^${asRegex(query)}$`)

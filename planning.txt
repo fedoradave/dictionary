@@ -1,4 +1,4 @@
-SQUABBLE.Band© Crossword Dictionary todo:
+SQUABBLE.Band© Dictionary todo:
 - squamble option
 - custom radio & checkboxes
 - group by lengths
@@ -10,3 +10,9 @@ SQUABBLE.Band© Crossword Dictionary todo:
 - api improvements:
   - catch 404s
   - fallback to other dictionaries
+
+SQUABBLE.Band© Verse:
+like wordle & jotto games,
+  but you create a word
+  and the PC guesses your word
+  while you guess its.

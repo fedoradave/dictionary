@@ -49,8 +49,8 @@ const Options = () => {
       </label>
       <button className="justify-right" type="button" onClick={toggleSettings}>
         {showSettings
-          ? <>settings [&#8211;]</>
-          : <>settings [+]</>
+          ? <>options [&#8211;]</>
+          : <>options [+]</>
         }
       </button>
     </div>

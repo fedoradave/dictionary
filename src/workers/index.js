@@ -1,6 +1,6 @@
 import constants from '../constants';
 import { loadFile } from './api';
-import { exact, startsWith, endsWith, contains, scramble } from './query';
+import { exact, startsWith, endsWith, contains, scramble, sortByLength } from './query';
 import { validate } from './validator';
 // app
 const fileText = loadFile('/twl06.txt');
@@ -11,8 +11,9 @@ const table = fileText && fileText.length
     )
   ) : {};
 onmessage = e => {
-  const { option, word } = e.data;
+  const { option, word, group } = e.data;
   let message = constants.message.default;
+  console.log(group);
   let results = [];
   if (!validate(e.data)) return postMessage({ message, results });
   switch(option) {
@@ -50,5 +51,10 @@ onmessage = e => {
       message = `error: missing or invalid options`;
       break;
   }
-  return postMessage({ message, results });
+  return postMessage({
+    message,
+    results: group
+      ? sortByLength(results)
+      : results
+  });
 }
