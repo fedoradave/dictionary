@@ -1,5 +1,8 @@
 const constants = {
   dictionary: '/twl06.txt',
+  selected: {
+    default: 'squabble'
+  },
   message: {
     default: 'Search a word.'
   },
