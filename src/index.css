@@ -52,6 +52,8 @@ body {
   transform: translateX(0);
   background: var(--background-color);
   position: absolute;
+  bottom: 0;
+  top: 0;
 }
 .panel.hidden {
   transform: translateX(100%);
