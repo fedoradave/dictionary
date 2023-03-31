@@ -1,5 +1,15 @@
 const constants = {
   dictionary: '/twl06.txt',
+  themes: {
+    name: 'theme',
+    values: {
+      console: 'console',
+      blackboard: 'blackboard',
+      whiteboard: 'whiteboard',
+      paper: 'paper',
+      coffee: 'coffee',
+    }
+  },
   panels: {
     app: 'app',
     settings: 'settings',
