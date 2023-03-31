@@ -1,16 +1,17 @@
 import {
   createContext, useState, useEffect, useCallback
 } from 'react';
+import { Provider as LayoutProvider } from '../layouts/Panels';
 import constants from '../constants';
 
 const App = createContext();
 
-const Provider = ({ worker, children }) => {
+const Provider = ({ Header, worker, children }) => {
   const [showSettings, setShowSettings] = useState(false);
   const [definition, setDefinition] = useState(null);
   const [selected, setSelected] = useState(constants.selected.default);
   const [loading, setLoading] = useState(false);
-  const [results, setResults] = useState([constants.selected.default]);
+  const [results, setResults] = useState(constants.results.default);
   const [message, setMessage] = useState(constants.message.default);
   const search = e => {
     e.preventDefault();
@@ -58,7 +59,21 @@ const Provider = ({ worker, children }) => {
       message,
       loading,
     }}>
-      {children}
+      <LayoutProvider
+        Header={Header}
+        initState={{
+          panels: {
+            [constants.panels.app]: true,
+            [constants.panels.settings]: true,
+          },
+          hidden: {
+            [constants.panels.settings]: true
+          },
+          main: constants.panels.app,
+        }}
+      >
+        {children}
+      </LayoutProvider>
     </App.Provider>
   )
 }

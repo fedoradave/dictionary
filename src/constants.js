@@ -1,7 +1,15 @@
 const constants = {
   dictionary: '/twl06.txt',
+  panels: {
+    app: 'app',
+    settings: 'settings',
+    about: 'about'
+  },
   selected: {
     default: 'squabble'
+  },
+  results: {
+    default: [],
   },
   message: {
     default: 'Search a word.'

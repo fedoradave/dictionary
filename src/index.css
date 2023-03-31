@@ -33,12 +33,43 @@ body {
 .justify-right {
   margin-left: auto;
 }
-#app {
+.panels {
+  position: relative;
   height: 100%;
-  margin: 0 0.5rem;
-  padding: 0.125rem 0 0.25rem;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.panel {
+  padding: 0.125rem 0.5rem 0.25rem;
+  height: 100%;
+  width: 100%;
   display: flex;
   flex-direction: column;
+  transition: transform 0.25s;
+}
+.panel.secondary {
+  transform: translateX(0);
+  background: var(--background-color);
+  position: absolute;
+}
+.panel.main {
+  flex: 1;
+}
+.panel.hidden {
+  transform: translateX(100%);
+}
+#app {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+#about {
+
+}
+#settings {
+  flex: 1;
 }
 #options {
   display: flex;
@@ -120,6 +151,11 @@ header strong {
 h1 {
   font-size: 1.75rem;
   margin: 0.75rem auto 0.5rem 0;
+  font-weight: normal;
+}
+h2 {
+  font-size: 1.25rem;
+  margin: 0.5rem auto 0.5rem 0;
   font-weight: normal;
 }
 header button {
