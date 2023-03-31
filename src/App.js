@@ -17,8 +17,8 @@ const App = (props) => {
         <Definition />
       </Panel>
       <Panel name={constants.panels.settings}>
-        <Settings />
         <About />
+        <Settings />
         <Copyright />
       </Panel>
     </AppProvider>
