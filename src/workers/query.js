@@ -87,7 +87,12 @@ export function contains(query, table) {
     []
   );
 }
-export function scramble() {
-  asScrambleRegex();
-  return [];
+export function scramble(query, table) {
+  const regex = new RegExp(`^${asScrambleRegex(query)}$`);
+  return Object.keys(table).reduce((hits, entry) =>
+    entry.match(regex)
+      ? [...hits, entry]
+      : hits,
+    []
+  );
 }
