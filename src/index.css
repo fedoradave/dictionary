@@ -65,11 +65,9 @@ body {
   flex-direction: column;
 }
 #about {
-
-}
-#settings {
   flex: 1;
 }
+#theme {}
 #options {
   display: flex;
   grid-gap: 0 0.5rem;

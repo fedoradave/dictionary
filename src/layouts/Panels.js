@@ -51,7 +51,6 @@ const Provider = ({
         : true
     })
   }, [hidden, setHidden])
-  console.log(hidden);
   return (
     <Panels.Provider value={{
       register,
