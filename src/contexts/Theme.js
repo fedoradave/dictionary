@@ -1,6 +1,7 @@
 import {
-  createContext, useContext, useState
+  createContext, useContext
 } from 'react';
+import useLocalStorageState from '../hooks/useLocalStorageState';
 
 const Theme = createContext();
 const Container = ({ children, ...props }) => {
@@ -12,8 +13,7 @@ const Container = ({ children, ...props }) => {
   );
 }
 const Provider = ({ initTheme, children, ...props }) => {
-  console.log(initTheme);
-  const [theme, setTheme] = useState(initTheme);
+  const [theme, setTheme] = useLocalStorageState('theme', initTheme);
   return (
     <Theme.Provider value={{ theme, setTheme }}>
       <Container {...props}>
