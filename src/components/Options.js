@@ -3,57 +3,20 @@ import constants from '../constants';
 import App from '../contexts/App';
 
 const Options = () => {
-  const { toggleSettings, showSettings } = useContext(App);
-  return (
-    <div id="options">
+  const { showSettings } = useContext(App);
+  return showSettings ? (
+    <fieldset id="options">
+      <legend>options</legend>
       <label>
         <input
-          type="radio"
-          name={constants.options.name}
-          value={constants.options.values.exact}
-          defaultChecked
+          type="checkbox"
+          name={constants.group.name}
+          defaultChecked={constants.group.default}
         />
-        exact
+          sort by length
       </label>
-      <label>
-        <input
-          type="radio"
-          name={constants.options.name}
-          value={constants.options.values.starts}
-        />
-        starts
-      </label>
-      <label>
-        <input
-          type="radio"
-          name={constants.options.name}
-          value={constants.options.values.ends}
-        />
-        ends
-      </label>
-      <label>
-        <input
-          type="radio"
-          name={constants.options.name}
-          value={constants.options.values.contains}
-        />
-        contains
-      </label>
-      <label>
-        <input
-          type="radio"
-          name={constants.options.name}
-          value={constants.options.values.scramble}
-        />
-        squamble
-      </label>
-      <button className="justify-right" type="button" onClick={toggleSettings}>
-        {showSettings
-          ? <>options [&#8211;]</>
-          : <>options [+]</>
-        }
-      </button>
-    </div>
-  );
+    </fieldset>
+  ) : null;
 }
+
 export default Options;

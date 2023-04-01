@@ -40,6 +40,15 @@ const constants = {
   group: {
     name: 'group',
     default: true,
+  },
+  lists: {
+    name: 'word-list',
+    values: {
+      twl06: 'twl06',
+      sowpods: 'sowpods',
+      enable: 'enable',
+      all: 'all'
+    }
   }
 };
 Object.freeze(constants);

@@ -13,7 +13,6 @@ const table = fileText && fileText.length
 onmessage = e => {
   const { option, word, group } = e.data;
   let message = constants.message.default;
-  console.log(group);
   let results = [];
   if (!validate(e.data)) return postMessage({ message, results });
   switch(option) {

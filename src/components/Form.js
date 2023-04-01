@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import App from '../contexts/App';
 import Input from './Input';
-import AdvancedOptions from './AdvancedOptions';
+import Modes from './Modes';
 import Options from './Options';
 
 const Form = () => {
@@ -9,8 +9,8 @@ const Form = () => {
   return (
     <form onSubmit={search}>
       <Input />
+      <Modes />
       <Options />
-      <AdvancedOptions />
     </form>
   );
 }

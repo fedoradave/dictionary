@@ -1,13 +1,13 @@
 SQUABBLE.band© Word Game Dictionary:
 algorithm improvements
   partial squambles
-default state
-  cache definitions
+cache definitions
 options
   custom radio & checkboxes
   group by lengths
   change dictionary
 definition loading state
+
 
 SQUABBLE.band© Verse:
 like wordle & jotto games,
