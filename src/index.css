@@ -1,11 +1,11 @@
 :root {
-  --color: #C1FFF2;
-  --background-color: #231C2A;
-  --border-color: #B2EDC5;
+  --color: currentColor;
+  --background-color: white;
+  --border-color: currentColor;
   font-size: 18px;
   font-family: verdana;
 }
-html, body {
+html, body, #theme, #app {
   color: var(--color);
   background: var(--background-color);
   border-color: var(--border-color);
@@ -13,6 +13,10 @@ html, body {
   height: 100%;
   width: 100%;
   line-height: 1.5em;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
 }
@@ -25,10 +29,30 @@ body::-webkit-scrollbar {
   border-color: inherit;
   line-height: inherit;
 }
-body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
+.console {
+  --background-color: #170925;
+  --border-color: #80DD9E;
+  --color: #D4FFE1;
+}
+.blackboard {
+  --background-color: #292929;
+  --border-color: #EEEEEE;
+  --color: #FDFDFD;
+}
+.whiteboard {
+  --background-color: #FDFDFD;
+  --border-color: #000000;
+  --color: #3D37FF;
+}
+.paper {
+  --background-color: #F1F0EB;
+  --border-color: #383838;
+  --color: #242325;
+}
+.coffee {
+  --background-color: #2A1810;
+  --border-color: #E9C4A2;
+  --color: #FFEEDE;
 }
 .justify-right {
   margin-left: auto;
@@ -58,14 +82,8 @@ body {
 .panel.hidden {
   transform: translateX(100%);
 }
-#app {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
 #about {}
-#theme {}
+#theme-picker {}
 #word-list {}
 #theme-options, #list-options, #modes {
   display: flex;
@@ -107,7 +125,7 @@ label input[type=radio], label input[type=checkbox] {
   color: currentColor;
   width: 1rem;
   height: 1rem;
-  border: 0.125rem solid currentColor;
+  border: 0.125rem solid var(--border-color);
   display: grid;
   place-content: center;
 }
@@ -171,12 +189,15 @@ header {
   display: flex;
   align-items: center;
 }
-header small {
+header h1 small {
   font-size: 0.375em;
 }
-header strong {
+header h1 strong {
   font-family: serif;
   font-weight: bold;
+}
+header h1 span {
+  color: var(--border-color);
 }
 footer {
   margin-top: auto;

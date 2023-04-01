@@ -8,7 +8,7 @@ const Title = () => {
     <header>
       <h1>
         <strong>SQUABBLE</strong>
-        <small>.BAND&#169; Word Game Dictionary</small>
+        <small>.BAND&#169; <span>Word Game Dictionary</span></small>
       </h1>
       <button
         onClick={() => toggle(constants.panels.settings)}
@@ -16,7 +16,7 @@ const Title = () => {
       >
         {hidden[constants.panels.settings]
           ? <>&#9776;</>
-          : <>&#10005;</> 
+          : <>&#10005;</>
         }
       </button>
     </header>

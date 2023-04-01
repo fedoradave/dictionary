@@ -2,6 +2,7 @@ const constants = {
   dictionary: '/twl06.txt',
   themes: {
     name: 'theme',
+    default: 'console',
     values: {
       console: 'console',
       blackboard: 'blackboard',

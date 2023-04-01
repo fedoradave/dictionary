@@ -1,5 +1,6 @@
 SQUABBLE.band© Word Game Dictionary:
 algorithm improvements
+  multi-threading options
   partial squambles
 cache definitions
 options
