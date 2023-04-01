@@ -4,8 +4,11 @@ import App from '../contexts/App';
 
 const Options = () => {
   const { showSettings } = useContext(App);
-  return showSettings ? (
-    <fieldset id="options">
+  return (
+    <fieldset
+      id="options"
+      className={showSettings ? null : 'hidden'}
+    >
       <legend>options</legend>
       <label>
         <input
@@ -16,7 +19,7 @@ const Options = () => {
           sort by length
       </label>
     </fieldset>
-  ) : null;
+  );
 }
 
 export default Options;

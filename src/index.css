@@ -83,6 +83,9 @@ body::-webkit-scrollbar {
 .panel.hidden {
   transform: translateX(100%);
 }
+fieldset.hidden {
+  display: none;
+}
 #about {}
 #theme-picker {}
 #word-list {}

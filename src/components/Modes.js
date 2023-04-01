@@ -49,6 +49,7 @@ const Options = () => {
         squamble
       </label>
       <button
+        type="button"
         className="justify-right"
         onClick={toggleSettings}
       >
