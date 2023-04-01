@@ -1,6 +1,10 @@
+import { useContext } from 'react';
 import constants from '../constants';
+import App from '../contexts/App';
 
 const Options = () => {
+  const { toggleSettings, showSettings } = useContext(App);
+
   return (
     <div id="modes">
       <label>
@@ -44,6 +48,12 @@ const Options = () => {
         />
         squamble
       </label>
+      <button
+        className="justify-right"
+        onClick={toggleSettings}
+      >
+        options [{showSettings ? <>&ndash;</>:<>+</>}]
+      </button>
     </div>
   );
 }
