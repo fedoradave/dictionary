@@ -1,6 +1,6 @@
 import { useContext, useState, useEffect } from 'react';
-import { getDefinition } from '../api';
-import App from '../contexts/App';
+import { getDefinition } from 'api';
+import App from 'contexts/App';
 
 const Definition = () => {
   const { selected, definition, setDefinition } = useContext(App);

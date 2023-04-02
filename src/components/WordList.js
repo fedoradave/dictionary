@@ -1,6 +1,6 @@
 import { useContext, useCallback } from 'react';
-import constants from '../constants';
-import App from '../contexts/App';
+import constants from 'constants';
+import App from 'contexts/App';
 const WordList = () => {
   const { wordList, setWordList } = useContext(App);
   const handleSetWordList = useCallback(e => setWordList(e.target.value), [setWordList]);

@@ -1,10 +1,12 @@
 SQUABBLE.band© Word Game Dictionary:
+settings
+  custom word list
+  custom theme
 algorithm improvements
   multi-threading options
   partial squambles
 cache definitions
 options
-  custom radio & checkboxes
   group by lengths
   change dictionary
 definition loading state

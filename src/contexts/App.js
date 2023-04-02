@@ -1,9 +1,9 @@
 import {
   createContext, useState, useEffect, useCallback
 } from 'react';
-import useLocalStorageState from '../hooks/useLocalStorageState';
-import { Provider as LayoutProvider } from '../layouts/Panels';
-import constants from '../constants';
+import useLocalStorageState from 'hooks/useLocalStorageState';
+import { Provider as LayoutProvider } from 'layouts/Panels';
+import constants from 'constants';
 
 const App = createContext();
 

@@ -1,4 +1,4 @@
-import { hasBlank, asRegex, asScrambleRegex } from './regex'
+import { hasBlank, asRegex, asScrambleRegex } from 'workers/regex'
 export function sortByLength(list) {
   const groups = groupByLength(list);
   console.log(groups);

@@ -1,7 +1,7 @@
-import constants from '../constants';
-import { loadFile } from './api';
-import { exact, startsWith, endsWith, contains, scramble, sortByLength } from './query';
-import { validate } from './validator';
+import constants from 'constants';
+import { loadFile } from 'workers/api';
+import { exact, startsWith, endsWith, contains, scramble, sortByLength } from 'workers/query';
+import { validate } from 'workers/validator';
 // app
 const fileText = loadFile('/twl06.txt');
 const table = fileText && fileText.length

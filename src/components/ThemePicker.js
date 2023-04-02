@@ -1,6 +1,6 @@
 import { useContext, useCallback } from 'react';
-import constants from '../constants';
-import Theme from '../contexts/Theme';
+import constants from 'constants';
+import Theme from 'contexts/Theme';
 const ThemePicker = () => {
   const { setTheme, theme } = useContext(Theme);
   const handleSetTheme = useCallback(e => setTheme(e.target.value), [setTheme]);

@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import Layout from '../layouts/Panels';
-import constants from '../constants';
+import Layout from 'layouts/Panels';
+import constants from 'constants';
 const Title = () => {
   const { toggle, hidden } = useContext(Layout);
 
@@ -8,7 +8,10 @@ const Title = () => {
     <header>
       <h1>
         <strong>SQUABBLE</strong>
-        <small>.BAND&#169; <span>Word Game Dictionary</span></small>
+        <small>
+          .BAND&#169;&nbsp;
+          <span>Word Game Dictionary</span>
+        </small>
       </h1>
       <button
         onClick={() => toggle(constants.panels.settings)}

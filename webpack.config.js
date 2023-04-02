@@ -4,6 +4,9 @@ const ESLintPlugin = require("eslint-webpack-plugin");
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
+  resolve: {
+    modules: [path.join(__dirname, "/src"), 'node_modules']
+  },
   entry: {
     app: path.join(__dirname, "/src/index.js"),
     worker: path.join(__dirname, "/src/workers/index.js"),

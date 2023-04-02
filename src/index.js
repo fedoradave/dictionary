@@ -1,6 +1,6 @@
 import { createRoot } from "react-dom/client";
-import App from "./App";
-import "./index.css";
+import App from "App";
+import "index.css";
 
 const worker = new Worker('/worker.js');
 const app = document.getElementById("app");

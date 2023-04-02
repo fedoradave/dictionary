@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import App from '../contexts/App';
-import Loader from './Loader'
+import App from 'contexts/App';
+import Loader from 'components/Loader'
 
 const Legend = () => {
   const { results, loading } = useContext(App);

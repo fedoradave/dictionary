@@ -1,7 +1,7 @@
 import {
   createContext, useContext
 } from 'react';
-import useLocalStorageState from '../hooks/useLocalStorageState';
+import useLocalStorageState from 'hooks/useLocalStorageState';
 
 const Theme = createContext();
 const Container = ({ children, ...props }) => {
