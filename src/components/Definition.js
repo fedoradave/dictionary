@@ -31,6 +31,6 @@ const Definition = () => {
       ))}
     </fieldset>
   );
-}
+};
 
 export default Definition;

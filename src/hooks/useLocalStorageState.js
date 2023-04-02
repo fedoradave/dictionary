@@ -5,7 +5,7 @@ const metadata = () => {
     created: now,
     updated: now,
   };
-}
+};
 const useLocalStorageState = (key, defaultValue) => {
   const newMeta = metadata();
   const localMeta = JSON.parse(localStorage.getItem(`metadata/${key}`));
@@ -31,6 +31,6 @@ const useLocalStorageState = (key, defaultValue) => {
     state,
     handleSetState,
   ];
-}
+};
 
 export default useLocalStorageState;

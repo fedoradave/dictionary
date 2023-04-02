@@ -1,4 +1,4 @@
-import { hasBlank, asRegex, asScrambleRegex } from 'workers/regex'
+import { hasBlank, asRegex, asScrambleRegex } from 'workers/regex';
 export function sortByLength(list) {
   const groups = groupByLength(list);
   console.log(groups);
@@ -19,12 +19,12 @@ export function groupByLength(list) {
     return {
       ...groups,
       [entry.length]: newList
-    }
-  }, {})
+    };
+  }, {});
 }
 export function exact(query, table) {
   if (hasBlank(query)) {
-    const regex = new RegExp(`^${asRegex(query)}$`)
+    const regex = new RegExp(`^${asRegex(query)}$`);
     return Object.keys(table).reduce((hits, entry) =>
       entry.match(regex)
         ? [...hits, entry]
@@ -38,7 +38,7 @@ export function exact(query, table) {
 }
 export function startsWith(query, table) {
   if (hasBlank(query)) {
-    const regex = new RegExp(`^${asRegex(query)}`)
+    const regex = new RegExp(`^${asRegex(query)}`);
     return Object.keys(table).reduce((hits, entry) =>
       entry.match(regex)
         ? [...hits, entry]
@@ -55,7 +55,7 @@ export function startsWith(query, table) {
 }
 export function endsWith(query, table) {
   if (hasBlank(query)) {
-    const regex = new RegExp(`${asRegex(query)}$`)
+    const regex = new RegExp(`${asRegex(query)}$`);
     return Object.keys(table).reduce((hits, entry) =>
       entry.match(regex)
         ? [...hits, entry]
@@ -72,7 +72,7 @@ export function endsWith(query, table) {
 }
 export function contains(query, table) {
   if (hasBlank(query)) {
-    const regex = new RegExp(asRegex(query))
+    const regex = new RegExp(asRegex(query));
     return Object.keys(table).reduce((hits, entry) =>
       entry.match(regex)
         ? [...hits, entry]

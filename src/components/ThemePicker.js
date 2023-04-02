@@ -63,5 +63,5 @@ const ThemePicker = () => {
       </div>
     </fieldset>
   );
-}
+};
 export default ThemePicker;

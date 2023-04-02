@@ -56,4 +56,4 @@ onmessage = e => {
       ? sortByLength(results)
       : results
   });
-}
+};

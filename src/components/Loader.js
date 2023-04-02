@@ -12,9 +12,9 @@ const Loader = () => {
     setTimeout(
       () => setStep((step+1)%steps.length),
       50
-    )
+    );
   }, [step]);
   return steps[step];
-}
+};
 
 export default Loader;

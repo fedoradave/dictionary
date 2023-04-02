@@ -8,7 +8,7 @@ import constants from 'constants';
 const App = createContext();
 
 const Provider = ({ Header, worker, children }) => {
-  const [wordList, setWordList] = useLocalStorageState('word-list', constants.lists.default)
+  const [wordList, setWordList] = useLocalStorageState('word-list', constants.lists.default);
   const [showSettings, setShowSettings] = useState(false);
   const [definition, setDefinition] = useState(null);
   const [selected, setSelected] = useState(constants.selected.default);
@@ -24,14 +24,14 @@ const Provider = ({ Header, worker, children }) => {
     setDefinition(null);
     setSelected(null);
     worker.postMessage({ word, option });
-  }
+  };
   const handleResult = e => {
     const { results, message } = e.data;
     setResults(results);
     setMessage(message);
     setLoading(false);
     if (results.length === 1) setSelected(results[0]);
-  }
+  };
   const toggleSettings = useCallback(() =>
     setShowSettings(!showSettings),
     [setShowSettings, showSettings]
@@ -43,7 +43,7 @@ const Provider = ({ Header, worker, children }) => {
     setLoading(false);
     setResults([]);
     setMessage(constants.message.default);
-  }, [])
+  }, []);
   useEffect(() => {
     worker.onmessage = handleResult;
   }, [worker]);
@@ -79,10 +79,10 @@ const Provider = ({ Header, worker, children }) => {
         {children}
       </LayoutProvider>
     </App.Provider>
-  )
-}
+  );
+};
 
 export {
   App as default,
   Provider
-}
+};

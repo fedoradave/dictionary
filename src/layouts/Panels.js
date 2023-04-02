@@ -18,7 +18,7 @@ const Panel = ({ name, children, ...props }) => {
       {children}
     </div>
   );
-}
+};
 const Provider = ({
   Header, children, initState,
 }) => {
@@ -35,22 +35,22 @@ const Provider = ({
     setHidden({
       ...hidden,
       [name]: true
-    })
+    });
   }, [hidden, setHidden]);
   const show = useCallback(name => {
     setHidden({
       ...hidden,
       [name]: undefined
-    })
-  }, [hidden, setHidden])
+    });
+  }, [hidden, setHidden]);
   const toggle = useCallback(name => {
     setHidden({
       ...hidden,
       [name]: hidden[name]
         ? undefined
         : true
-    })
-  }, [hidden, setHidden])
+    });
+  }, [hidden, setHidden]);
   return (
     <Panels.Provider value={{
       register,
@@ -68,10 +68,10 @@ const Provider = ({
       </div>
     </Panels.Provider>
   );
-}
+};
 
 export {
   Panels as default,
   Provider,
   Panel
-}
+};

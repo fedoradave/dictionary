@@ -18,6 +18,6 @@ const Input = () => {
       <button type="submit">search</button>
     </fieldset>
   );
-}
+};
 
 export default Input;

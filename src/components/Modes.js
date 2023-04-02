@@ -57,5 +57,5 @@ const Options = () => {
       </button>
     </div>
   );
-}
+};
 export default Options;

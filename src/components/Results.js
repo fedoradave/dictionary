@@ -1,14 +1,14 @@
 import { useContext } from 'react';
 import App from 'contexts/App';
-import Loader from 'components/Loader'
+import Loader from 'components/Loader';
 
 const Legend = () => {
   const { results, loading } = useContext(App);
-  const title = `${results.length}  word${results.length === 1 ? '': 's'}`
+  const title = `${results.length}  word${results.length === 1 ? '': 's'}`;
   return (
     <legend>results <small>{!loading && `(${title})`}</small></legend>
   );
-}
+};
 
 const Results = () => {
   const { results, message, loading, setSelected, selected } = useContext(App);
@@ -30,6 +30,6 @@ const Results = () => {
       </ul>
     </fieldset>
   );
-}
+};
 
 export default Results;

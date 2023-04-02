@@ -11,7 +11,7 @@ const Container = ({ children, ...props }) => {
       {children}
     </div>
   );
-}
+};
 const Provider = ({ initTheme, children, ...props }) => {
   const [theme, setTheme] = useLocalStorageState('theme', initTheme);
   return (
@@ -20,10 +20,10 @@ const Provider = ({ initTheme, children, ...props }) => {
         {children}
       </Container>
     </Theme.Provider>
-  )
-}
+  );
+};
 
 export {
   Theme as default,
   Provider
-}
+};

@@ -13,6 +13,6 @@ const Form = () => {
       <Options />
     </form>
   );
-}
+};
 
 export default Form;

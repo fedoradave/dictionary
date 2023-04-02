@@ -43,5 +43,5 @@ const WordList = () => {
       </div>
     </fieldset>
   );
-}
+};
 export default WordList;

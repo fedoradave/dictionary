@@ -20,6 +20,6 @@ const Options = () => {
       </label>
     </fieldset>
   );
-}
+};
 
 export default Options;
