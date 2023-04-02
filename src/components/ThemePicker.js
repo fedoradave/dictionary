@@ -16,7 +16,7 @@ const ThemePicker = () => {
             name={constants.themes.name}
             value={constants.themes.values.console}
             checked={theme === constants.themes.values.console}
-            onClick={handleSetTheme}
+            onChange={handleSetTheme}
           />
           console
         </label>
@@ -26,7 +26,7 @@ const ThemePicker = () => {
             name={constants.themes.name}
             value={constants.themes.values.whiteboard}
             checked={theme === constants.themes.values.whiteboard}
-            onClick={handleSetTheme}
+            onChange={handleSetTheme}
           />
           whiteboard
         </label>
@@ -36,7 +36,7 @@ const ThemePicker = () => {
             name={constants.themes.name}
             value={constants.themes.values.blackboard}
             checked={theme === constants.themes.values.blackboard}
-            onClick={handleSetTheme}
+            onChange={handleSetTheme}
           />
           blackboard
         </label>
@@ -46,7 +46,7 @@ const ThemePicker = () => {
             name={constants.themes.name}
             value={constants.themes.values.paper}
             checked={theme === constants.themes.values.paper}
-            onClick={handleSetTheme}
+            onChange={handleSetTheme}
           />
           paper
         </label>
@@ -56,7 +56,7 @@ const ThemePicker = () => {
             name={constants.themes.name}
             value={constants.themes.values.coffee}
             checked={theme === constants.themes.values.coffee}
-            onClick={handleSetTheme}
+            onChange={handleSetTheme}
           />
           coffee
         </label>

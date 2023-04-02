@@ -44,11 +44,11 @@ const constants = {
   },
   lists: {
     name: 'word-list',
+    default: 'twl06.txt',
     values: {
-      twl06: 'twl06',
-      sowpods: 'sowpods',
-      enable: 'enable',
-      all: 'all'
+      twl06: 'twl06.txt',
+      sowpods: 'sowpods.txt',
+      enable: 'enable.txt',
     }
   }
 };

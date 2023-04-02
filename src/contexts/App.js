@@ -1,12 +1,14 @@
 import {
   createContext, useState, useEffect, useCallback
 } from 'react';
+import useLocalStorageState from '../hooks/useLocalStorageState';
 import { Provider as LayoutProvider } from '../layouts/Panels';
 import constants from '../constants';
 
 const App = createContext();
 
 const Provider = ({ Header, worker, children }) => {
+  const [wordList, setWordList] = useLocalStorageState('word-list', constants.lists.default)
   const [showSettings, setShowSettings] = useState(false);
   const [definition, setDefinition] = useState(null);
   const [selected, setSelected] = useState(constants.selected.default);
@@ -47,6 +49,8 @@ const Provider = ({ Header, worker, children }) => {
   }, [worker]);
   return (
     <App.Provider value={{
+      wordList,
+      setWordList,
       selected,
       setSelected,
       definition,
