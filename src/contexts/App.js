@@ -41,7 +41,6 @@ const Provider = ({ Header, worker, children }) => {
       constants.actions.resultFail
     ].includes(type)) {
       const { results, message } = payload;
-      console.log(results);
       setResults(results);
       setMessage(message);
       setLoading(false);

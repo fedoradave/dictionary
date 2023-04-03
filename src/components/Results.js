@@ -24,7 +24,10 @@ const Result = ({ children }) => {
   return (
     <li
       className={children === selected ? 'selected' : undefined}
-      onClick={() => setSelected(children)}
+      onClick={() => children === selected
+        ? setSelected(null)
+        : setSelected(children)
+      }
     >
       {children}
     </li>
@@ -63,15 +66,13 @@ const Results = () => {
       <Legend />
       {loading && <Loader />}
       <ul>
-        {!loading && (
-          isGrouped
-            ? Object.keys(results).map(group =>
-              <GroupedResults key={group} group={group} />
-            ) : (
-              <GroupedResults />
-            )
+        {!loading && (isGrouped
+          ? Object.keys(results).map(group =>
+            <GroupedResults key={group} group={group} />
+          ) : (
+            <GroupedResults />
           )
-        }
+        )}
         {!loading && !resultsLength && (
           <p>{message}</p>
         )}

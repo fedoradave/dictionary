@@ -6,9 +6,6 @@ algorithm improvements
   multi-threading options
   partial squambles
 cache definitions
-options
-  group by lengths
-  change dictionary
 definition loading state
 
 

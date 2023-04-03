@@ -1,7 +1,6 @@
 import { hasBlank, asRegex, asScrambleRegex } from 'workers/regex';
 export function sortByLength(list) {
   const groups = groupByLength(list);
-  console.log(groups);
   return Object.keys(groups).reduce((sortedList, length) => [
     ...sortedList,
     ...groups[length]

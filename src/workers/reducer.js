@@ -5,7 +5,6 @@ import actions from 'workers/actions';
 import constants from 'constants';
 const reducer = {
   [constants.actions.query]: (state, { payload }) => {
-    console.log(payload);
     let message = constants.message.default;
     let results = [];
     if (!validate(payload)) return {
@@ -51,7 +50,11 @@ const reducer = {
         message = `Error: missing or invalid options`;
         break;
     }
-    if (results.length && payload.group) {
+    if (
+      results.length
+      && payload.group
+      && payload.mode !== constants.modes.values.exact
+    ) {
       results = groupByLength(results);
     }
     return {
