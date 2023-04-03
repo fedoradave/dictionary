@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import constants from 'constants';
 import App from 'contexts/App';
 
-const Options = () => {
+const Modes = () => {
   const { toggleSettings, showSettings } = useContext(App);
 
   return (
@@ -10,8 +10,8 @@ const Options = () => {
       <label>
         <input
           type="radio"
-          name={constants.options.name}
-          value={constants.options.values.exact}
+          name={constants.modes.name}
+          value={constants.modes.values.exact}
           defaultChecked
         />
         exact
@@ -19,32 +19,32 @@ const Options = () => {
       <label>
         <input
           type="radio"
-          name={constants.options.name}
-          value={constants.options.values.starts}
+          name={constants.modes.name}
+          value={constants.modes.values.starts}
         />
         starts
       </label>
       <label>
         <input
           type="radio"
-          name={constants.options.name}
-          value={constants.options.values.ends}
+          name={constants.modes.name}
+          value={constants.modes.values.ends}
         />
         ends
       </label>
       <label>
         <input
           type="radio"
-          name={constants.options.name}
-          value={constants.options.values.contains}
+          name={constants.modes.name}
+          value={constants.modes.values.contains}
         />
         contains
       </label>
       <label>
         <input
           type="radio"
-          name={constants.options.name}
-          value={constants.options.values.scramble}
+          name={constants.modes.name}
+          value={constants.modes.values.scramble}
         />
         squamble
       </label>
@@ -58,4 +58,4 @@ const Options = () => {
     </div>
   );
 };
-export default Options;
+export default Modes;

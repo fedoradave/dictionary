@@ -1,4 +1,14 @@
 const constants = {
+  actions: {
+    respond: 'respond',
+    noop: 'noop',
+    query: 'query',
+    result: 'result',
+    resultFail: 'resultFail',
+    setWordList: 'setWordList',
+    setWordListFail: 'setWordListFail',
+    setWordListSuccess: 'setWordListSuccess',
+  },
   dictionary: '/twl06.txt',
   themes: {
     name: 'theme',
@@ -28,8 +38,8 @@ const constants = {
   query: {
     name: 'query',
   },
-  options: {
-    name: 'options',
+  modes: {
+    name: 'modes',
     values: {
       exact: 'exact',
       starts: 'starts',

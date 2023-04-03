@@ -1,8 +1,9 @@
 import {
-  createContext, useState, useEffect, useCallback
+  createContext, useState, useEffect, useCallback, useMemo
 } from 'react';
 import useLocalStorageState from 'hooks/useLocalStorageState';
 import { Provider as LayoutProvider } from 'layouts/Panels';
+import actions from 'workers/actions';
 import constants from 'constants';
 
 const App = createContext();
@@ -14,23 +15,38 @@ const Provider = ({ Header, worker, children }) => {
   const [selected, setSelected] = useState(constants.selected.default);
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState(constants.results.default);
+  const isGrouped = useMemo(() => !(results instanceof Array), [results]);
+  const resultsLength = useMemo(() => isGrouped
+    ? Object.values(results).reduce((accum, curr) => accum + curr.length, 0)
+    : results.length,
+    [isGrouped, results]
+  );
   const [message, setMessage] = useState(constants.message.default);
   const search = e => {
     e.preventDefault();
-    const word = event.target.elements[constants.query.name].value.toLowerCase().trim();
-    const option = event.target.elements[constants.options.name].value;
+    const word = e.target.elements[constants.query.name].value
+      .toLowerCase().trim();
+    const mode = e.target.elements[constants.modes.name].value;
+    const group = e.target.elements[constants.group.name].checked;
     setLoading(true);
     setResults([]);
     setDefinition(null);
     setSelected(null);
-    worker.postMessage({ word, option });
+    worker.postMessage(actions.client.query({ word, mode, group }));
   };
-  const handleResult = e => {
-    const { results, message } = e.data;
-    setResults(results);
-    setMessage(message);
-    setLoading(false);
-    if (results.length === 1) setSelected(results[0]);
+  const handleResponse = e => {
+    const { type, payload } = e.data;
+    if ([
+      constants.actions.result,
+      constants.actions.resultFail
+    ].includes(type)) {
+      const { results, message } = payload;
+      console.log(results);
+      setResults(results);
+      setMessage(message);
+      setLoading(false);
+      if (results.length === 1) setSelected(results[0]);
+    }
   };
   const toggleSettings = useCallback(() =>
     setShowSettings(!showSettings),
@@ -45,7 +61,12 @@ const Provider = ({ Header, worker, children }) => {
     setMessage(constants.message.default);
   }, []);
   useEffect(() => {
-    worker.onmessage = handleResult;
+    worker.postMessage(actions.client.setWordList({
+      wordList
+    }));
+  }, [worker, wordList]);
+  useEffect(() => {
+    worker.onmessage = handleResponse;
   }, [worker]);
   return (
     <App.Provider value={{
@@ -59,6 +80,8 @@ const Provider = ({ Header, worker, children }) => {
       showSettings,
       search,
       results,
+      isGrouped,
+      resultsLength,
       reset,
       message,
       loading,

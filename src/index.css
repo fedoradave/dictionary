@@ -179,8 +179,24 @@ ul {
 }
 li {
   cursor: pointer;
+  user-select: none;
 }
-li:active {
+li.group-header {
+  display: flex;
+}
+li.group-header:before, li.group-header:after {
+  content: "";
+  flex: 1 1;
+  border-bottom: 2px solid var(--border-color);
+  margin: auto;
+}
+li.group-header:before {
+  margin-right: 0.5rem;
+}
+li.group-header:after {
+  margin-left: 0.5rem;
+}
+li:not(.group-header):active {
   color: var(--background-color);
   background: var(--border-color);
 }
