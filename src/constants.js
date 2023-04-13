@@ -63,9 +63,9 @@ const constants = {
       enable: 'enable.txt',
     },
     descriptions: {
-      'twl06.txt': 'The official US Scrabble tournaments word list.',
-      'sowpods.txt': 'The official international Scrabble tournament word list.',
-      'enable.txt': 'The official Words with Friends word list.',
+      'twl06.txt': 'The US Scrabble tournaments word list',
+      'sowpods.txt': 'The international Scrabble tournament word list',
+      'enable.txt': 'The Words with Friends word list',
     }
   },
   workers: {
