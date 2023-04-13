@@ -82,7 +82,6 @@ export function contains(query, state) {
 }
 export function scramble(query, state) {
   const combos = combinations(asRegex(query));
-  console.log(hasBlank(query), combos);
   const comboMap = Object.keys(combos).reduce((map, combo) => {
     map[combo] = state.normalized[combo];
     return map;
