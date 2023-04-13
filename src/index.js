@@ -1,8 +1,9 @@
 import { createRoot } from "react-dom/client";
 import App from "App";
+import constants from 'constants';
 import "index.css";
 
-const worker = new Worker('/worker.js');
+const lifeguard = new Worker(constants.workers.lifeguard);
 const app = document.getElementById("app");
 const root = createRoot(app);
-root.render(<App worker={worker} />);
+root.render(<App worker={lifeguard} />);

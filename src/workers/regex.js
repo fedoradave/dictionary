@@ -1,3 +1,17 @@
+export function normalize(word = '') {
+  return word.toLowerCase().split('').sort().join('');
+}
+export function combinations(word, combo = "", combos = {}) {
+  if (!word && !combo) return;
+  if (!word) {
+    combos[normalize(combo)] = true;
+  }
+  else {
+    combinations(word.slice(1), combo + word[0], combos);
+    combinations(word.slice(1), combo, combos);
+  }
+  return combos;
+}
 export function permute(word, prefix = '') {
   if (word.length < 2) return [prefix + word];
   const results = [];

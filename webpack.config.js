@@ -9,7 +9,8 @@ module.exports = {
   },
   entry: {
     app: path.join(__dirname, "/src/index.js"),
-    worker: path.join(__dirname, "/src/workers/index.js"),
+    lifeguard: path.join(__dirname, "/src/workers/lifeguard.js"),
+    swimmer: path.join(__dirname, "/src/workers/swimmer.js"),
   },
   output: {
     path: path.join(__dirname, "/dist"), // the bundle output path
