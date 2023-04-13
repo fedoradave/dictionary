@@ -1,13 +1,14 @@
 SQUABBLE.band© Word Game Dictionary:
-settings
-  custom word list
-  custom theme
+url params
+  /dictionary/* |
+  /dictionary/<list>|/*: list to search from (default is all)
+  */<query> |
+  */<mode>/<query>:     query or mode & query (default is exact)
 algorithm improvements
   multi-threading options
   partial squambles
 cache definitions
 definition loading state
-
 
 SQUABBLE.band© Verse:
 like wordle & jotto games,

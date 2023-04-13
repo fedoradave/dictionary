@@ -7,12 +7,14 @@ const Title = () => {
   return (
     <header>
       <h1>
-        <strong>SQUABBLE</strong>
-        <small>
-          .BAND&#169;&nbsp;
-          <span>Word Game Dictionary</span>
-        </small>
-      </h1>
+        <a href="/">
+          <strong>SQUABBLE</strong>
+          <small>
+            .BAND&#169;&nbsp;
+            <span>Word Game Dictionary</span>
+          </small>
+          </a>
+        </h1>
       <button
         onClick={() => toggle(constants.panels.settings)}
         type="button"

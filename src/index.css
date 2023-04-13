@@ -17,11 +17,11 @@ html, body, #theme, #app {
   padding: 0;
   display: flex;
   flex-direction: column;
+}
+*::-webkit-scrollbar {
+  display: none;
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
-}
-body::-webkit-scrollbar {
-  display: none;
 }
 *, *:before, *:after {
   box-sizing: inherit;
@@ -129,7 +129,7 @@ label input[type=radio], label input[type=checkbox] {
   color: currentColor;
   width: 1rem;
   height: 1rem;
-  border: 0.125rem solid var(--border-color);
+  border: 2px solid var(--border-color);
   display: grid;
   place-content: center;
 }
@@ -212,14 +212,17 @@ header {
   display: flex;
   align-items: center;
 }
-header h1 small {
+header h1 a {
+  text-decoration: none;
+}
+header h1 a small {
   font-size: 0.375em;
 }
-header h1 strong {
+header h1 a strong {
   font-family: serif;
   font-weight: bold;
 }
-header h1 span {
+header h1 a span {
   color: var(--border-color);
 }
 footer {

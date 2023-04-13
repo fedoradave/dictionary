@@ -41,6 +41,9 @@ const WordList = () => {
           enable
         </label>
       </div>
+      <p>
+        {constants.lists.descriptions[wordList]}
+      </p>
     </fieldset>
   );
 };

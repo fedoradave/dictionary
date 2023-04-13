@@ -27,7 +27,7 @@ const constants = {
     about: 'about'
   },
   selected: {
-    default: 'squabble'
+    default: null//'squabble'
   },
   results: {
     default: [],
@@ -37,6 +37,8 @@ const constants = {
   },
   query: {
     name: 'query',
+    valid: 'abcdefghijklmnopqrstuvwxyz',
+    wildcard: '?'
   },
   modes: {
     name: 'modes',
@@ -59,8 +61,17 @@ const constants = {
       twl06: 'twl06.txt',
       sowpods: 'sowpods.txt',
       enable: 'enable.txt',
+    },
+    descriptions: {
+      'twl06.txt': 'The official US Scrabble tournaments word list.',
+      'sowpods.txt': 'The official international Scrabble tournament word list.',
+      'enable.txt': 'The official Words with Friends word list.',
     }
-  }
+  },
+  workers: {
+    lifeguard: '/lifeguard.js',
+    swimmer: '/swimmer.js'
+  },
 };
 Object.freeze(constants);
 export default constants;

@@ -16,7 +16,7 @@ const Options = () => {
           name={constants.group.name}
           defaultChecked={constants.group.default}
         />
-          sort by length
+          group by length
       </label>
     </fieldset>
   );
