@@ -76,6 +76,7 @@ const Provider = ({ Header, worker, children }) => {
       setResults([]);
       setDefinition(null);
       setSelected(null);
+      // todo: check if user wants to group it!
       worker.postMessage(actions.client.query({
         word: params.word,
         mode: params.mode,
