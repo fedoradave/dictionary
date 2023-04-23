@@ -5,9 +5,9 @@ import Modes from 'components/Modes';
 import Options from 'components/Options';
 
 const Form = () => {
-  const { search } = useContext(App);
+  const { handleSearch } = useContext(App);
   return (
-    <form onSubmit={search}>
+    <form onSubmit={handleSearch}>
       <Input />
       <Modes />
       <Options />

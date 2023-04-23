@@ -14,7 +14,7 @@ const GroupHeader = ({ group, expanded, setExpanded}) => {
   const { results } = useContext(App);
   return (
     <li className="group-header" onClick={() => setExpanded(!expanded)}>
-      {group} letter words ({results[group].length}) [{expanded ? <>&ndash;</> : <>+</>}]
+      {group}-letter words ({results[group].length}) [{expanded ? <>&ndash;</> : <>+</>}]
     </li>
   );
 };

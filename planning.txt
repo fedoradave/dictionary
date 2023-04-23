@@ -1,12 +1,7 @@
 SQUABBLE.band© Word Game Dictionary:
-url params
-  /dictionary/* |
-  /dictionary/<list>|/*: list to search from (default is all)
-  */<query> |
-  */<mode>/<query>:     query or mode & query (default is exact)
 algorithm improvements
   multi-threading options
-  partial squambles
+  pure regex search
 cache definitions
 definition loading state
 
@@ -19,3 +14,9 @@ like wordle & jotto games,
 SQUABBLE.band© Crossword Game:
 like scrabble & words with friends games
   with both competitive and coop modes
+======================================
+
+queryparams
+squabble.band/search/<mode>/<word>?l=<list>t=<theme>
+on url change:
+  update any options
