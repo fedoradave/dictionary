@@ -14,11 +14,12 @@ const constants = {
     name: 'theme',
     default: 'console',
     values: {
-      console: 'console',
       blackboard: 'blackboard',
-      whiteboard: 'whiteboard',
-      paper: 'paper',
       coffee: 'coffee',
+      console: 'console',
+      classic: 'classic',
+      paper: 'paper',
+      whiteboard: 'whiteboard',
     }
   },
   panels: {

@@ -55,6 +55,11 @@ html, body, #theme, #app {
   --border-color: #E9C4A2;
   --color: #FFEEDE;
 }
+.classic {
+  --background-color: #B8B8A4;
+  --border-color: #F5F4F4;
+  --color: #6F334B;
+}
 .justify-right {
   margin-left: auto;
 }

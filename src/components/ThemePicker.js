@@ -10,56 +10,18 @@ const ThemePicker = () => {
         theme
       </legend>
       <div id="theme-options">
-        <label>
-          <input
-            type="radio"
-            name={constants.themes.name}
-            value={constants.themes.values.console}
-            checked={theme === constants.themes.values.console}
-            onChange={handleSetTheme}
-          />
-          console
-        </label>
-        <label>
-          <input
-            type="radio"
-            name={constants.themes.name}
-            value={constants.themes.values.whiteboard}
-            checked={theme === constants.themes.values.whiteboard}
-            onChange={handleSetTheme}
-          />
-          whiteboard
-        </label>
-        <label>
-          <input
-            type="radio"
-            name={constants.themes.name}
-            value={constants.themes.values.blackboard}
-            checked={theme === constants.themes.values.blackboard}
-            onChange={handleSetTheme}
-          />
-          blackboard
-        </label>
-        <label>
-          <input
-            type="radio"
-            name={constants.themes.name}
-            value={constants.themes.values.paper}
-            checked={theme === constants.themes.values.paper}
-            onChange={handleSetTheme}
-          />
-          paper
-        </label>
-        <label>
-          <input
-            type="radio"
-            name={constants.themes.name}
-            value={constants.themes.values.coffee}
-            checked={theme === constants.themes.values.coffee}
-            onChange={handleSetTheme}
-          />
-          coffee
-        </label>
+        {Object.entries(constants.themes.values).map(([key, value]) => (
+          <label key={key}>
+            <input
+              type="radio"
+              name={constants.themes.name}
+              value={value}
+              checked={theme === value}
+              onChange={handleSetTheme}
+            />
+            {key}
+          </label>
+        ))}
       </div>
     </fieldset>
   );
