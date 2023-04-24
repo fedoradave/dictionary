@@ -1,7 +1,7 @@
 import {
   createContext, useState, useEffect, useCallback, useMemo
 } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import useLocalStorageState from 'hooks/useLocalStorageState';
 import useSearch from 'hooks/useSearch';
 import { Provider as LayoutProvider } from 'layouts/Panels';
@@ -14,6 +14,7 @@ const pattern = `${root}${searchRoutes.root}${searchRoutes.mode}${searchRoutes.w
 const App = createContext();
 
 const Provider = ({ Header, worker, children }) => {
+  const navigate = useNavigate();
   const { pathname } = useLocation();
   const { params, search } = useSearch({ pathname, pattern });
   const [wordList, setWordList] = useLocalStorageState('word-list', params.list || constants.lists.default);
@@ -61,7 +62,8 @@ const Provider = ({ Header, worker, children }) => {
     setLoading(false);
     setResults([]);
     setMessage(constants.message.default);
-  }, []);
+    navigate(root);
+  }, [navigate]);
   useEffect(() => {
     worker.onmessage = handleResponse;
   }, [worker]);

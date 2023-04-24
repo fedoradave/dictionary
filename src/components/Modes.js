@@ -13,7 +13,9 @@ const Modes = () => {
           type="radio"
           name={constants.modes.name}
           value={constants.modes.values.exact}
-          defaultChecked={params.mode === constants.modes.values.exact || !params.mode}
+          defaultChecked={
+            params.mode === constants.modes.values.exact || !params.mode
+          }
         />
         exact
       </label>
