@@ -1,5 +1,7 @@
 SQUABBLE.band© Word Game Dictionary:
+force uppercase in input
 algorithm improvements
+  squambles w blank!
   multi-threading options
   pure regex search
 cache definitions
