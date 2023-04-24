@@ -13,8 +13,8 @@ const Options = () => {
       <label>
         <input
           type="checkbox"
-          name={constants.group.name}
-          defaultChecked={constants.group.default}
+          name={constants.options.group.name}
+          defaultChecked={constants.defaults.group}
         />
           group by length
       </label>

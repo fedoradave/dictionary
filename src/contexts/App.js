@@ -17,25 +17,25 @@ const Provider = ({ Header, worker, children }) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
   const { params, search } = useSearch({ pathname, pattern });
-  const [wordList, setWordList] = useLocalStorageState('word-list', params.list || constants.lists.default);
+  const [wordList, setWordList] = useLocalStorageState('word-list', params.list || constants.defaults.list);
   const [showSettings, setShowSettings] = useState(false);
   const [definition, setDefinition] = useState(null);
-  const [selected, setSelected] = useState(constants.selected.default);
+  const [selected, setSelected] = useState(constants.defaults.selected);
   const [loading, setLoading] = useState(false);
-  const [results, setResults] = useState(constants.results.default);
+  const [results, setResults] = useState(constants.defaults.results);
   const isGrouped = useMemo(() => !(results instanceof Array), [results]);
   const resultsLength = useMemo(() => isGrouped
     ? Object.values(results).reduce((accum, curr) => accum + curr.length, 0)
     : results.length,
     [isGrouped, results]
   );
-  const [message, setMessage] = useState(constants.message.default);
+  const [message, setMessage] = useState(constants.defaults.message);
   const handleSearch = e => {
     e.preventDefault();
     const word = e.target.elements[constants.query.name].value
       .toLowerCase().trim();
     const mode = e.target.elements[constants.modes.name].value;
-    //const group = e.target.elements[constants.group.name].checked;
+    //const group = e.target.elements[constants.options.group.name].checked;
     search({ word, mode });
   };
   const handleResponse = e => {
@@ -61,7 +61,7 @@ const Provider = ({ Header, worker, children }) => {
     setDefinition(null);
     setLoading(false);
     setResults([]);
-    setMessage(constants.message.default);
+    setMessage(constants.defaults.message);
     navigate(root);
   }, [navigate]);
   useEffect(() => {

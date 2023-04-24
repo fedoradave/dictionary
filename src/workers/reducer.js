@@ -6,7 +6,7 @@ import actions from 'workers/actions';
 import constants from 'constants';
 const reducer = {
   [constants.actions.query]: (state, { payload }) => {
-    let message = constants.message.default;
+    let message = constants.defaults.message;
     let results = [];
     if (!validate(payload)) return {
       ...state,

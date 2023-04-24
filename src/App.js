@@ -12,7 +12,7 @@ import Copyright from 'content/Copyright';
 import constants from 'constants';
 const App = (props) => {
   return (
-    <ThemeProvider initTheme={constants.themes.default}>
+    <ThemeProvider initTheme={constants.defaults.theme}>
       <AppProvider Header={Title} {...props}>
         <Panel name={constants.panels.app}>
           <Form />
