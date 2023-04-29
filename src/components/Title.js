@@ -11,7 +11,7 @@ const Title = () => {
           <strong>SQUABBLE</strong>
           <small>
             .BAND&#169;&nbsp;
-            <span>Word Game Dictionary</span>
+            <span>Word Finder</span>
           </small>
           </a>
         </h1>
