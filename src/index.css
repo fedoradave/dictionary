@@ -94,6 +94,13 @@ fieldset.hidden {
 #about {}
 #theme-picker {}
 #word-list {}
+#version p {
+  text-align: right;
+}
+#copyright {
+  color: var(--border-color);
+  margin-top: auto;
+}
 #theme-options, #list-options, #modes {
   display: flex;
   flex-wrap: wrap;
@@ -229,10 +236,6 @@ header h1 a strong {
 }
 header h1 a span {
   color: var(--border-color);
-}
-footer {
-  color: var(--border-color);
-  margin-top: auto;
 }
 h1 {
   font-size: 1.75rem;

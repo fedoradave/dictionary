@@ -8,7 +8,9 @@ import Definition from 'components/Definition';
 import ThemePicker from 'components/ThemePicker';
 import WordList from 'components/WordList';
 import About from 'content/About';
+import Support from 'content/Support';
 import Copyright from 'content/Copyright';
+import Version from 'content/Version';
 import constants from 'constants';
 const App = (props) => {
   return (
@@ -18,9 +20,11 @@ const App = (props) => {
           <Form />
           <Results />
           <Definition />
+          <Version />
         </Panel>
         <Panel name={constants.panels.settings}>
           <About />
+          <Support />
           <ThemePicker />
           <WordList />
           <Copyright />
