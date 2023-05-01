@@ -1,4 +1,4 @@
-import { combinations, hasBlank, asRegex } from 'workers/regex';
+import { combinations, hasBlank, asRegex, asScrambleRegex } from 'workers/regex';
 
 export function groupByLength(list) {
   if (!list) return {};
@@ -82,10 +82,19 @@ export function contains(query, state) {
 }
 export function scramble(query, state) {
   const combos = combinations(asRegex(query));
-  const comboMap = Object.keys(combos).reduce((map, combo) => {
-    map[combo] = state.normalized[combo];
-    return map;
-  }, {});
+  const comboMap = Object.keys(combos).reduce(
+    (map, combo) => {
+      if (!combo.includes('.')) map[combo] = state.normalized[combo];
+      else {
+        Object.keys(state.normalGroups[combo.length] || []).forEach((group) => {
+          if (group.match(`^${asScrambleRegex(combo)}$`)) {
+            map[group] = state.normalized[group];
+          }
+        }, {});
+      }
+      return map;
+    }, {}
+  );
   return Object.values(comboMap).reduce(
     (results, comboGroup) => {
       if (comboGroup) results.push(...comboGroup);

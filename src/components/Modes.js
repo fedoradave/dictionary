@@ -3,7 +3,12 @@ import constants from 'constants';
 import App from 'contexts/App';
 
 const Modes = () => {
-  const { toggleSettings, showSettings, params, pathname } = useContext(App);
+  const {
+    //toggleSettings,
+    //showSettings, 
+    params,
+    pathname
+  } = useContext(App);
 
   return (
     <div id="modes">
@@ -59,6 +64,7 @@ const Modes = () => {
         />
         squamble
       </label>
+      {/*
       <button
         type="button"
         className="justify-right"
@@ -66,6 +72,7 @@ const Modes = () => {
       >
         [{showSettings ? <>&ndash;</>:<>+</>}]
       </button>
+      */}
     </div>
   );
 };

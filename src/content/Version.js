@@ -1,6 +1,6 @@
 const Version = () => (
   <footer id="version">
-    <p>v0.8.1</p>
+    <p>v0.9.0</p>
   </footer>
 );
 

@@ -32,8 +32,9 @@ export function hasBlank(word) {
   return !!word.includes('?');
 }
 export function asScrambleRegex(word) {
-  const permutations = unique(permute(asRegex(word)));
-  return `(${permutations.join('|')})`;
+  return word.includes('.')
+    ? `.*${word.replace(/\./g, '').split('').join('.*')}.*`
+    : word;
 }
 export function asRegex(word) {
   return word.replaceAll('?', '.');
