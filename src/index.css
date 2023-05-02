@@ -94,8 +94,10 @@ fieldset.hidden {
 #about {}
 #theme-picker {}
 #word-list {}
-#version p {
+#version {
   text-align: right;
+  line-height: 0.75rem;
+  font-size: 0.75rem;
 }
 #copyright {
   color: var(--border-color);

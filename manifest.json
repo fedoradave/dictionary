@@ -1,8 +1,8 @@
 {
-  "short_name": "Squabble Dictionary",
-  "name": "Squabble Band Crossword Dictionary",
+  "short_name": "Squabble Word Finder",
+  "name": "Squabble Band Word Finder",
   "start_url": "/",
   "background_color": "#ffffff",
-  "display": "minimal-ui",
+  "display": "browser",
   "description": "Word list & dictionary for various word games"
 }

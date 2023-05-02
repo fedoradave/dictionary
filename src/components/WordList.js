@@ -10,36 +10,18 @@ const WordList = () => {
         word list
       </legend>
       <div id="list-options">
-        <label>
-          <input
-            type="radio"
-            name={constants.lists.name}
-            value={constants.lists.values.twl06}
-            onChange={handleSetWordList}
-            checked={wordList === constants.lists.values.twl06}
-          />
-          twl06
-        </label>
-        <label>
-          <input
-            type="radio"
-            name={constants.lists.name}
-            value={constants.lists.values.sowpods}
-            onChange={handleSetWordList}
-            checked={wordList === constants.lists.values.sowpods}
-          />
-          sowpods
-        </label>
-        <label>
-          <input
-            type="radio"
-            name={constants.lists.name}
-            value={constants.lists.values.enable}
-            onChange={handleSetWordList}
-            checked={wordList === constants.lists.values.enable}
-          />
-          enable
-        </label>
+        {Object.entries(constants.lists.values).map(([key, value]) => (
+          <label key={key}>
+            <input
+              type="radio"
+              name={constants.lists.name}
+              value={value}
+              onChange={handleSetWordList}
+              checked={wordList === value}
+            />
+            {key}
+          </label>
+        ))}
       </div>
       <p>
         {constants.lists.descriptions[wordList]}

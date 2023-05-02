@@ -1,10 +1,10 @@
 const defaults = {
-  selected: 'squabble',
+  selected: null,
   results: [],
   message: 'Search a word.',
-  theme: 'classic',
+  theme: 'blackboard',
   group: true,
-  list: 'twl06.txt',
+  list: 'enable.txt',
 };
 Object.freeze(defaults);
 export default defaults;
