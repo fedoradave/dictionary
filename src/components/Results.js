@@ -4,7 +4,7 @@ import Loader from 'components/Loader';
 
 const Legend = () => {
   const { resultsLength, loading } = useContext(App);
-  const title = `${resultsLength}  word${resultsLength === 1 ? '': 's'}`;
+  const title = `${resultsLength}  playable word${resultsLength === 1 ? '': 's'}`;
   return (
     <legend>results <small>{!loading && `(${title})`}</small></legend>
   );
