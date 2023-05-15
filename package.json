@@ -9,8 +9,8 @@
     "build": "webpack --mode production"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "daisyw",
+  "license": "UNLICENSED",
   "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
