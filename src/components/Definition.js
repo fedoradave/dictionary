@@ -14,7 +14,7 @@ const Definition = () => {
   if (definition.title) return (
     <fieldset id="definition">
       <legend>{selected} <small><a target="_blank" href="https://dictionaryapi.dev/" rel="noreferrer">Free Dictionary API</a></small></legend>
-      <p>No definition found.</p>
+      <p>No definition found. <a href={`https://google.com/search?q=define+${selected}`} target="_blank" rel="noreferrer">Try Googling it!</a></p>
     </fieldset>
   );
   const {
